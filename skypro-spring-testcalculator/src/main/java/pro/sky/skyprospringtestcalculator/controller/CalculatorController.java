@@ -23,26 +23,26 @@ public class CalculatorController {
     @GetMapping
     public String HelloCalculator(){
         return "Добро пожаловать в калькулятор";
-    }
+    }/////Hello
 
     @GetMapping("/plus")
     public String plus (@RequestParam (required = false) Float num1, @RequestParam(required = false) Float num2){
         ValidateParams(num1, num2);
         return num1 + " + " + num2 + " = " + service.plus(num1, num2);
-    }
+    }////plus
 
     @GetMapping("/minus")
     public String minus (@RequestParam (required = false) Float num1, @RequestParam(required = false) Float num2){
         ValidateParams(num1, num2);
         return num1 + " - " + num2 + " = " + service.minus(num1, num2);
-    }
+    }/////minus
 
 
     @GetMapping("/multiply")
     public String multiply (@RequestParam (required = false) Float num1, @RequestParam(required = false) Float num2){
         ValidateParams(num1, num2);
         return num1 + " * " + num2 + " = " + service.multiply(num1, num2);
-    }
+    }////multiply
 
     @GetMapping("/divide")
     public String divide (@RequestParam (required = false) Float num1, @RequestParam(required = false) Float num2){
@@ -54,12 +54,12 @@ public class CalculatorController {
             return e.getMessage();
         }
 
-    }
+    }/////divide
 
     private void ValidateParams(Float num1, Float num2) {
         if (num1 == null || num2 == null) {
             throw new DivideByZeroException("Не введен один из параметров!!!");
         }
-    }
+    }////Проверка на введенные параметры
 
 }
